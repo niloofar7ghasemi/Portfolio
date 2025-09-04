@@ -1,0 +1,115 @@
+:root{
+  --bg:#f7f9fc;        
+  --surface:#ffffff;   
+  --text:#111827;      
+  --muted:#6b7280;      
+  --brand:#2563eb;     
+  --brand-2:#06b6d4;    
+  --border:#e6eaf3;     
+  --ring:rgba(37,99,235,.35); 
+}
+*{ box-sizing:border-box; }
+html, body{ height:100%; }
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+  color:var(--text);
+  background:
+    radial-gradient(60% 60% at 20% 10%, #eaf2ff 0%, rgba(234,242,255,0) 60%),
+    radial-gradient(50% 50% at 90% 85%, #e6fffb 0%, rgba(230,255,251,0) 55%),
+    var(--bg);
+  line-height:1.7;
+}
+.wrap{ max-width:1040px; margin:0 auto; padding:0 16px; }
+header{
+  position:sticky; top:0; z-index:10;
+  background:rgba(255,255,255,.85);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+}
+nav{ display:flex; align-items:center; justify-content:space-between; height:64px; }
+.brand{
+  display:flex; align-items:center; gap:10px;
+  font-weight:800; color:var(--text); text-decoration:none;
+}
+.logo{
+  width:34px; height:34px; border-radius:10px; display:grid; place-items:center;
+  background:linear-gradient(135deg,var(--brand),var(--brand-2));
+  color:#fff; font-weight:900;
+  box-shadow:0 4px 14px rgba(37,99,235,.25);
+}
+.navlinks a{
+  color:var(--text); text-decoration:none; font-weight:600; margin-left:14px; opacity:.9;
+}
+.navlinks a:hover{ opacity:1; }
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 14px; border-radius:12px; text-decoration:none; font-weight:700;
+  background:#f2f5fb; border:1px solid var(--border); color:var(--text);
+  transition:filter .2s ease, transform .06s ease;
+}
+.btn:hover{ filter:brightness(1.03); }
+.btn:active{ transform:translateY(1px); }
+.btn.primary{
+  background:linear-gradient(135deg,var(--brand),var(--brand-2));
+  color:#fff; border:none;
+}
+.btn:focus-visible{ outline:3px solid var(--ring); outline-offset:2px; }
+section{ padding:44px 0; border-top:1px solid var(--border); }
+h1{ font-size:clamp(24px,5vw,40px); line-height:1.25; margin:0; }
+h2{ font-size:clamp(20px,3.5vw,28px); margin:0 0 14px; position:relative; }
+h2::after{
+  content:""; display:block; width:56px; height:4px; border-radius:999px;
+  background:linear-gradient(90deg,var(--brand),var(--brand-2));
+  margin-top:8px;
+}
+.lead{ color:var(--muted); max-width:70ch; }
+.muted{ color:var(--muted); }
+.small{ font-size:12px; }
+.grid{ display:grid; gap:12px; grid-template-columns:repeat(12,1fr); }
+.col-6{ grid-column:span 6; }
+.col-12{ grid-column:span 12; }
+@media (max-width:900px){
+  .col-6{ grid-column:span 12; }
+}
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:16px;
+  box-shadow:0 10px 24px rgba(17,24,39,.06);
+}
+.timeline{ padding-left:16px; border-left:3px solid var(--border); }
+.t-item{ margin:0 0 12px; }
+.t-item h4{ margin:0 0 4px; font-size:16px; }
+.t-item .meta{ font-size:13px; color:var(--muted); }
+
+.skill{
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+  padding:10px 12px; border:1px solid var(--border); border-radius:12px; background:#fff;
+}
+.meter{ height:8px; background:#e9edf6; border-radius:999px; overflow:hidden; flex:1; margin:0 12px; }
+.meter>span{ display:block; height:100%; background:linear-gradient(90deg,var(--brand),var(--brand-2)); width:var(--w,50%); }
+.p-card{
+  display:grid; grid-template-columns:140px 1fr; gap:12px; align-items:start;
+}
+.p-img{
+  width:100%; height:90px; border-radius:12px;
+  object-fit:cover; border:1px solid var(--border); display:block;
+  background:none; 
+}
+.p-title{ margin:0; font-size:18px; }
+.p-desc{ margin:6px 0 0; color:var(--muted); font-size:14px; }
+.p-links{ display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+footer{ padding:32px 0 56px; text-align:center; color:var(--muted); }
+.embed summary{ cursor:pointer; margin-top:8px; color:var(--brand); font-weight:700; }
+.frame-wrap{
+  position:relative; width:100%; padding-top:70%;
+  margin-top:10px; border-radius:12px; overflow:hidden; border:1px solid var(--border);
+  box-shadow:0 8px 18px rgba(17,24,39,.08);
+}
+.frame-wrap iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+section:nth-of-type(even){
+  background:rgba(255,255,255,.6);
+  border-top:1px solid var(--border);
+}
